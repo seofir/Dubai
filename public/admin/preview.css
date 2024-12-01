@@ -1,0 +1,26 @@
+/* RTL and Hebrew font support for previews */
+body {
+  direction: rtl;
+  font-family: 'Heebo', sans-serif;
+}
+
+.frame-content {
+  direction: rtl;
+}
+
+/* Preview styling */
+.preview-panel {
+  background-color: #f9fafb;
+  padding: 20px;
+}
+
+.preview-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.preview-content {
+  font-size: 16px;
+  line-height: 1.5;
+}

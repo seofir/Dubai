@@ -1,0 +1,26 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ניהול תוכן - שוקולד דובאי</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    /* RTL support for Netlify CMS */
+    [class*="AppHeader"] {
+      direction: rtl;
+    }
+    [class*="SidebarContainer"] {
+      direction: rtl;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script>
+    // Initialize the CMS object
+    CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap");
+    CMS.registerPreviewStyle("/admin/preview.css");
+  </script>
+</body>
+</html>
