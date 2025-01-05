@@ -1,19 +1,21 @@
-import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { Hero } from './components/Hero';
-import { BusinessSection } from './components/BusinessSection';
-import { PromotionBanner } from './components/PromotionBanner';
+import { Home } from './components/Home';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <Hero />
-      <PromotionBanner />
-      <BusinessSection />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
