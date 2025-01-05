@@ -1,0 +1,67 @@
+backend:
+  name: git-gateway
+  branch: main # Make sure this matches your default branch name
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: 'Upload "{{path}}"'
+    deleteMedia: 'Delete "{{path}}"'
+
+# These folders are relative to the project root
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Enable editorial workflow for content review
+publish_mode: editorial_workflow
+
+# Add Hebrew locale
+locale: 'he'
+
+collections:
+  - name: "products"
+    label: "מוצרים"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "מזהה", name: "id", widget: "string" }
+      - { label: "שם (אנגלית)", name: "name", widget: "string" }
+      - { label: "שם (עברית)", name: "nameHe", widget: "string" }
+      - { label: "מחיר", name: "price", widget: "number" }
+      - { label: "תיאור (אנגלית)", name: "description", widget: "text" }
+      - { label: "תיאור (עברית)", name: "descriptionHe", widget: "text" }
+      - { label: "תמונה", name: "image", widget: "image" }
+      - { label: "משקל (גרם)", name: "weight", widget: "number" }
+      - { label: "במלאי", name: "inStock", widget: "boolean", default: true }
+
+  - name: "pages"
+    label: "דפים"
+    files:
+      - label: "דף הבית"
+        name: "home"
+        file: "content/pages/home.yml"
+        fields:
+          - { label: "כותרת ראשית", name: "heroTitle", widget: "string" }
+          - { label: "כותרת משנה", name: "heroSubtitle", widget: "string" }
+          - { label: "תמונת רקע", name: "heroImage", widget: "image" }
+          - label: "תכונות"
+            name: "features"
+            widget: "list"
+            fields:
+              - { label: "כותרת", name: "title", widget: "string" }
+              - { label: "תיאור", name: "description", widget: "text" }
+              - { label: "אייקון", name: "icon", widget: "select", options: ["Crown", "Gift", "Phone"] }
+
+      - label: "מידע עסקי"
+        name: "business"
+        file: "content/pages/business.yml"
+        fields:
+          - { label: "כותרת", name: "title", widget: "string" }
+          - label: "הזדמנויות"
+            name: "opportunities"
+            widget: "list"
+            fields:
+              - { label: "כותרת", name: "title", widget: "string" }
+              - { label: "תיאור", name: "description", widget: "text" }
+              - { label: "אייקון", name: "icon", widget: "select", options: ["Building2", "Users", "Package"] }
